@@ -16,6 +16,31 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, l
     info.changeScoreBy(1)
     tiles.setTileAt(tiles.getTileLocation(20, 15), assets.tile`myTile`)
 })
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    500,
+    true
+    )
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
@@ -25,6 +50,31 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, l
     diamondsCollected += 1
     info.changeScoreBy(1)
     tiles.setTileAt(tiles.getTileLocation(8, 14), assets.tile`myTile`)
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    500,
+    true
+    )
 })
 function addEnemies (enemyList: Image[]) {
     for (let value of tiles.getTilesByType(assets.tile`myTile12`)) {
@@ -40,6 +90,31 @@ function addEnemies (enemyList: Image[]) {
         tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`myTile18`)
     }
 }
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    500,
+    false
+    )
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
@@ -171,56 +246,6 @@ img`
     . c c c c c c c c c c c c . . . 
     `
 ]
-let newenemyList = [img`
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . c c c c . . . 
-    . . . . . . . c c d d d d c . . 
-    . . . . . c c c c c c d d c . . 
-    . . . c c c 4 4 4 4 d c c c c c 
-    . . c 4 4 1 4 4 4 4 4 1 c c 4 f 
-    . c 4 4 4 4 1 4 4 4 4 d 1 f 4 f 
-    f 4 4 4 4 4 1 4 4 4 4 4 1 f 4 f 
-    f 4 4 f 4 4 1 4 c f 4 4 1 4 4 f 
-    f 4 4 4 4 4 1 c 4 f 4 4 1 f f f 
-    . f 4 4 4 4 1 4 4 f 4 4 d f . . 
-    . . f 4 4 1 4 c c 4 4 d f . . . 
-    . . . f d 4 4 4 4 4 4 c f . . . 
-    . . . . f f 4 4 4 4 c d b c . . 
-    . . . . . . f f f f d d d c . . 
-    . . . . . . . . . . c c c . . . 
-    `, img`
-    . . . . . . . . c c c c c . . . 
-    . . . . . . c c 5 5 5 5 5 c . . 
-    . . . . . c 5 5 5 5 5 5 5 5 c . 
-    . . . . c b b b b b b 5 5 5 c . 
-    . . . . c 1 1 b b 1 b b c c . . 
-    . . . c 1 1 1 b b 1 1 1 c . . . 
-    . . . c 1 1 1 1 b 1 1 1 c . c c 
-    . . . c d 1 1 1 b 1 1 1 b b 5 c 
-    . . c c d 1 c 1 b 1 b 1 5 5 5 c 
-    . c c d d 1 1 1 1 1 b 1 b b 5 c 
-    f d d d 1 1 1 1 1 b b 1 f . c c 
-    f f f 1 1 1 1 1 1 b b b f . . . 
-    . . . f f 1 1 1 b b b 5 5 f . . 
-    . . . . . f f f 5 5 5 5 5 f . . 
-    . . . . . . . . f f f f f f . . 
-    . . . . . . . . . . . . . . . . 
-    `, img`
-    . . 4 4 4 . . . . 4 4 4 . . . . 
-    . 4 5 5 5 e . . e 5 5 5 4 . . . 
-    4 5 5 5 5 5 e e 5 5 5 5 5 4 . . 
-    4 5 5 4 4 5 5 5 5 4 4 5 5 4 . . 
-    e 5 4 4 5 5 5 5 5 5 4 4 5 e . . 
-    . e e 5 5 5 5 5 5 5 5 e e . . . 
-    . . e 5 f 5 5 5 5 f 5 e . . . . 
-    . . f 5 5 5 4 4 5 5 5 f . . f f 
-    . . f 4 5 5 f f 5 5 6 f . f 5 f 
-    . . . f 6 6 6 6 6 6 4 4 f 5 5 f 
-    . . . f 4 5 5 5 5 5 5 4 4 5 f . 
-    . . . f 5 5 5 5 5 4 5 5 f f . . 
-    . . . f 5 f f f 5 f f 5 f . . . 
-    . . . f f . . f f . . f f . . . 
-    `]
 if (info.life() == 0) {
     game.splash("You lost")
 }
