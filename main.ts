@@ -6,10 +6,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
     info.changeScoreBy(1)
     tiles.setTileAt(tiles.getTileLocation(26, 2), assets.tile`myTile`)
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile19`, function (sprite, location) {
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 25))
-    tiles.setTileAt(tiles.getTileLocation(25, 29), assets.tile`myTile16`)
-})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -225,7 +221,7 @@ function addEnemies (enemyList: Image[]) {
         tiles.setTileAt(tiles.getTileLocation(33, 18), assets.tile`myTile15`)
         tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile13`)
         tiles.setTileAt(tiles.getTileLocation(29, 27), assets.tile`myTile18`)
-        tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`myTile19`)
+        tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`transparency16`)
     }
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -299,22 +295,50 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
 })
 info.onScore(3, function () {
     addEnemies(list)
+    tiles.setTileAt(tiles.getTileLocation(33, 8), assets.tile`transparency16`)
+    if (controller.A.isPressed()) {
+        projectile = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . 9 9 9 9 9 9 . . . . . . . 
+            . . 9 9 9 9 9 9 9 9 9 . . . . . 
+            . . . 9 9 9 9 9 9 9 . . . . . . 
+            . . 9 9 9 9 9 9 9 . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, mySprite, 50, 0)
+    }
 })
 info.onScore(6, function () {
     game.splash("You collected all the diamonds!")
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite, location) {
+    tiles.setTileAt(tiles.getTileLocation(33, 8), assets.tile`myTile16`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
     pause(500)
 })
+let projectile: Sprite = null
 let enemySprite: Sprite = null
 let list: Image[] = []
 let diamondsCollected = 0
 let mySprite: Sprite = null
+// Used tiles provided by Makecode Arcade
 tiles.setCurrentTilemap(tilemap`level`)
+game.showLongText("Collect all the colored diamonds, watch out for teleporters, and some striped diamonds can cause you to lose.  ", DialogLayout.Center)
 game.showLongText("Your goal is to collect all the color diamonds, but some stripped diamonds can cause you to lose all your hearts.  ", DialogLayout.Center)
 info.setLife(3)
 info.setScore(0)
+// Used sprite provided by Makecode Arcade, but edited the sprite.
 mySprite = sprites.create(img`
     . . . . f f f f . . . . . 
     . . f f f f f f f f . . . 
@@ -418,6 +442,6 @@ img`
     `
 ]
 if (info.life() == 0) {
-    game.splash("You lost")
+    game.splash("You lost, try again!")
 }
 addEnemies(list)
