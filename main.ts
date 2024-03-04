@@ -4,7 +4,11 @@ namespace SpriteKind {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(26, 2), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(30, 2), assets.tile`myTile`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile19`, function (sprite, location) {
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 31))
+    tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`myTile16`)
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -67,7 +71,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
     info.changeLifeBy(-1)
-    tiles.setTileAt(tiles.getTileLocation(33, 18), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(30, 18), assets.tile`myTile`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
     info.setLife(-1)
@@ -76,7 +80,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(29, 10), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(3, 22), assets.tile`myTile`)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -140,16 +144,16 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(17, 27), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(23, 17), assets.tile`myTile`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(28, 30), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(29, 16), assets.tile`myTile`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile18`, function (sprite, location) {
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 13))
-    tiles.setTileAt(tiles.getTileLocation(29, 18), assets.tile`myTile16`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(23, 29))
+    tiles.setTileAt(tiles.getTileLocation(26, 26), assets.tile`myTile16`)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -218,10 +222,10 @@ function addEnemies (enemyList: Image[]) {
         enemySprite.setBounceOnWall(true)
     }
     if (diamondsCollected == 3) {
-        tiles.setTileAt(tiles.getTileLocation(33, 18), assets.tile`myTile15`)
+        tiles.setTileAt(tiles.getTileLocation(30, 18), assets.tile`myTile15`)
         tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile13`)
-        tiles.setTileAt(tiles.getTileLocation(29, 27), assets.tile`myTile18`)
-        tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`transparency16`)
+        tiles.setTileAt(tiles.getTileLocation(26, 26), assets.tile`myTile18`)
+        tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`myTile19`)
     }
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -286,48 +290,23 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(11, 24), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(17, 13), assets.tile`myTile`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(3, 24), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(24, 30), assets.tile`myTile`)
 })
 info.onScore(3, function () {
     addEnemies(list)
-    tiles.setTileAt(tiles.getTileLocation(33, 8), assets.tile`transparency16`)
-    if (controller.A.isPressed()) {
-        projectile = sprites.createProjectileFromSprite(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . 9 9 9 9 9 9 . . . . . . . 
-            . . 9 9 9 9 9 9 9 9 9 . . . . . 
-            . . . 9 9 9 9 9 9 9 . . . . . . 
-            . . 9 9 9 9 9 9 9 . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, mySprite, 50, 0)
-    }
 })
 info.onScore(6, function () {
     game.splash("You collected all the diamonds!")
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite, location) {
-    tiles.setTileAt(tiles.getTileLocation(33, 8), assets.tile`myTile16`)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
     pause(500)
 })
-let projectile: Sprite = null
 let enemySprite: Sprite = null
 let list: Image[] = []
 let diamondsCollected = 0
@@ -335,7 +314,6 @@ let mySprite: Sprite = null
 // Used tiles provided by Makecode Arcade
 tiles.setCurrentTilemap(tilemap`level`)
 game.showLongText("Collect all the colored diamonds, watch out for teleporters, and some striped diamonds can cause you to lose.  ", DialogLayout.Center)
-game.showLongText("Your goal is to collect all the color diamonds, but some stripped diamonds can cause you to lose all your hearts.  ", DialogLayout.Center)
 info.setLife(3)
 info.setScore(0)
 // Used sprite provided by Makecode Arcade, but edited the sprite.
@@ -360,12 +338,12 @@ mySprite = sprites.create(img`
 tiles.placeOnTile(mySprite, tiles.getTileLocation(3, 2))
 controller.moveSprite(mySprite, 100, 70)
 diamondsCollected = 0
-tiles.setTileAt(tiles.getTileLocation(26, 2), assets.tile`myTile1`)
-tiles.setTileAt(tiles.getTileLocation(11, 24), assets.tile`myTile2`)
-tiles.setTileAt(tiles.getTileLocation(28, 30), assets.tile`myTile3`)
-tiles.setTileAt(tiles.getTileLocation(29, 10), assets.tile`myTile4`)
-tiles.setTileAt(tiles.getTileLocation(3, 24), assets.tile`myTile5`)
-tiles.setTileAt(tiles.getTileLocation(17, 27), assets.tile`myTile9`)
+tiles.setTileAt(tiles.getTileLocation(30, 2), assets.tile`myTile1`)
+tiles.setTileAt(tiles.getTileLocation(17, 13), assets.tile`myTile2`)
+tiles.setTileAt(tiles.getTileLocation(29, 16), assets.tile`myTile3`)
+tiles.setTileAt(tiles.getTileLocation(3, 22), assets.tile`myTile4`)
+tiles.setTileAt(tiles.getTileLocation(24, 30), assets.tile`myTile5`)
+tiles.setTileAt(tiles.getTileLocation(23, 17), assets.tile`myTile9`)
 scene.cameraFollowSprite(mySprite)
 list = [
 img`
