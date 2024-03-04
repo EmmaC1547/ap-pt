@@ -4,41 +4,141 @@ namespace SpriteKind {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(23, 5), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(26, 2), assets.tile`myTile`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile19`, function (sprite, location) {
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 25))
+    tiles.setTileAt(tiles.getTileLocation(25, 29), assets.tile`myTile16`)
+})
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    animation.runImageAnimation(
+    mySprite,
+    [img`
+        . . . . f f f f . . . . . 
+        . . f f c c c c f f . . . 
+        . f f c c c c c c f f . . 
+        f f c c c c c c c c f f . 
+        f f c c f c c c c c c f . 
+        f f f f f c c c f c c f . 
+        f f f f c c c f c c f f . 
+        f f f f f f f f f f f f . 
+        f f f f f f f f f f f f . 
+        . f f f f f f f f f f . . 
+        . f f f f f f f f f f . . 
+        f c f f f f f f f f c f . 
+        c c f 9 9 9 9 9 9 f c c . 
+        d d f c c c c c c f d d . 
+        . . . f f f f f f . . . . 
+        . . . f f . . f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . 
+        . . . . . f f f f . . . . 
+        . . . f f c c c c f f . . 
+        . f f f c c c c c c f f . 
+        f f c c c c c c c c c f f 
+        f c c c c f c c c c c c f 
+        . f f f f c c c c f c c f 
+        . f f f f c c f c c c f f 
+        . f f f f f f f f f f f f 
+        . f f f f f f f f f f f f 
+        . . f f f f f f f f f f . 
+        . . c f f f f f f f f f . 
+        . . c f f f f f f f f c f 
+        . . c c 9 9 9 9 9 c c c f 
+        . . d f f f f f f f d d . 
+        . . d f f f . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . 
+        . . . . . f f f f . . . . 
+        . . . f f c c c c f f . . 
+        . . f f c c c c c c f f . 
+        . f f f c c c c c c c f f 
+        f f f c c c c c c c c c f 
+        f f c c c f c c c c c c f 
+        . f f f f f c c c f c f f 
+        . f f f f c c f f c f f f 
+        . . f f f f f f f f f f f 
+        . . f f f f f f f f f f . 
+        . . f f f f f f f f f c . 
+        . f c f f f f f f f f c . 
+        . c d d c c 9 9 9 9 c d . 
+        . . d d f f f f f f f d . 
+        . . . . . . . . f f f . . 
+        `],
+    500,
+    false
+    )
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
     info.changeLifeBy(-1)
     tiles.setTileAt(tiles.getTileLocation(33, 18), assets.tile`myTile`)
-    music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.UntilDone)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
+    info.setLife(-1)
+    tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile16`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(20, 15), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(29, 10), assets.tile`myTile`)
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
     [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . f f f f f . . . 
+        . . . f f f f f f f f f . 
+        . . f f f c f f f f f f . 
+        . . f f c f f f c f f f f 
+        f f c c f f f c c f f c f 
+        f f f f f d f f f f c c f 
+        . f f f d d f f f f f f f 
+        . . f f d d f b f d d f f 
+        . . . f d d f 1 d d d f . 
+        . . . f d d d d d f f f . 
+        . . . f f d d d f f f . . 
+        . . . f 9 9 9 c c c c . . 
+        . . . f 9 9 9 c c c c . . 
+        . . . f c c c f d d f . . 
+        . . . . f f f f f f . . . 
+        . . . . . . f f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . 
+        . . . . f f f f f f . . . 
+        . . . f f f f f f f f f . 
+        . . f f f c f f f f f f . 
+        . f f f c f f f c f f f f 
+        f f c c f f f c c f f c f 
+        f f f f f d f f f f c c f 
+        . f f f d d f f f f f f f 
+        . . f f d d f b f d d f f 
+        . . f f d d f 1 d d d f . 
+        . . . f d d d d d f f f . 
+        . . . f f d c c c c f . . 
+        . . . f 9 9 c c c c f . . 
+        . . f f c c f d d f f f . 
+        . . f f f f f f f f f f . 
+        . . . f f f . . . f f . . 
+        `,img`
+        . . . . . . . . . . . . . 
+        . . . . f f f f f f . . . 
+        . . . f f f f f f f f f . 
+        . . f f f c f f f f f f . 
+        . f f f c f f f c f f f f 
+        f f c c f f f c c f f c f 
+        f f f f f d f f f f c c f 
+        . f f f d d f f f f f f f 
+        . f f f d d f b f d d f f 
+        . . f f d d f 1 d d d f f 
+        . . . f d d d d d f f f . 
+        . . . f f d d d c c c c . 
+        . . . f 9 9 9 9 c c c c . 
+        . . f f c c c c f d d f . 
+        . . f f f f f f f f f f . 
+        . . . f f f . . . f f . . 
         `],
     500,
-    true
+    false
     )
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
@@ -49,31 +149,69 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, l
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(8, 14), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(28, 30), assets.tile`myTile`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile18`, function (sprite, location) {
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 13))
+    tiles.setTileAt(tiles.getTileLocation(29, 18), assets.tile`myTile16`)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
     [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . 
+        . . . f f f f f f . . . . 
+        . f f f f f f f f f . . . 
+        . f f f f f f c f f f . . 
+        f f f f c f f f c f f f . 
+        f c f f c c f f f c c f f 
+        f c c f f f f d f f f f f 
+        f f f f f f f d d f f f . 
+        f f d d f b f d d f f f . 
+        f f d d d 1 f d d f f . . 
+        . f f f d d d d d f . . . 
+        . f c c c d d d f f . . . 
+        . f c c c 9 9 9 9 f . . . 
+        . f d d f c c c c f f . . 
+        . f f f f f f f f f f . . 
+        . . f f . . . f f f . . . 
+        `,img`
+        . . . . . . . . . . . . . 
+        . . . f f f f f f . . . . 
+        . f f f f f f f f f . . . 
+        . f f f f f f c f f f . . 
+        f f f f c f f f c f f f . 
+        f c f f c c f f f c c f f 
+        f c c f f f f d f f f f f 
+        f f f f f f f d d f f f . 
+        f f d d f b f d d f f . . 
+        . f d d d 1 f d d f f . . 
+        . f f f d d d d d f . . . 
+        . . f c c c c d f f . . . 
+        . . f c c c c 9 9 f . . . 
+        . f f f d d f c c f f . . 
+        . f f f f f f f f f f . . 
+        . . f f . . . f f f . . . 
+        `,img`
+        . . . f f f f f . . . . . 
+        . f f f f f f f f f . . . 
+        . f f f f f f c f f f . . 
+        f f f f c f f f c f f . . 
+        f c f f c c f f f c c f f 
+        f c c f f f f d f f f f f 
+        f f f f f f f d d f f f . 
+        f f d d f b f d d f f . . 
+        . f d d d 1 f d d f . . . 
+        . f f f d d d d d f . . . 
+        . . f d d d d d f f . . . 
+        . . c c c c 9 9 9 f . . . 
+        . . c c c c 9 9 9 f . . . 
+        . . f d d f c c c f . . . 
+        . . . f f f f f f . . . . 
+        . . . . f f f . . . . . . 
         `],
     500,
-    true
+    false
     )
 })
 function addEnemies (enemyList: Image[]) {
@@ -85,31 +223,65 @@ function addEnemies (enemyList: Image[]) {
     }
     if (diamondsCollected == 3) {
         tiles.setTileAt(tiles.getTileLocation(33, 18), assets.tile`myTile15`)
-        tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`myTile18`)
-        tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile15`)
-        tiles.setTileAt(tiles.getTileLocation(0, 0), assets.tile`myTile18`)
+        tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile13`)
+        tiles.setTileAt(tiles.getTileLocation(29, 27), assets.tile`myTile18`)
+        tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`myTile19`)
     }
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
     [img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+        . . . . f f f f . . . . . 
+        . . f f f f f f f f . . . 
+        . f f f f f f c f f f . . 
+        f f f f f f c c f f f c . 
+        f f f c f f f f f f f c . 
+        c c c f f f d d f f c c . 
+        f f f f f d d f f c c f . 
+        f f f b f d d f b f f f . 
+        . f d 1 f d d f 1 d f . . 
+        . f d d d d d d d d f . . 
+        . f f f d d d d f f f . . 
+        . c c c 9 c c 9 c c c . . 
+        . d d 9 9 9 9 9 9 d d . . 
+        . d d c c c c c c d d . . 
+        . . . f f f f f f . . . . 
+        . . . f f . . f f . . . . 
+        `,img`
+        . . . . . . . . . . . . . 
+        . . . . . f f f f . . . . 
+        . . . f f f f f f f f . . 
+        . . f f f f f f c f f f . 
+        f f f f f f f c c f f f c 
+        f f f f c f f f f f f f c 
+        . c c c f f f d d f f c c 
+        . f f f f f d d f f c c f 
+        . f f f b f d d f b f f f 
+        . f f d 1 f d d f 1 d f f 
+        . . f d d d d d d c c f d 
+        . c c f 9 9 9 9 b d d d d 
+        . d d f 9 9 9 9 b d d b . 
+        . . . f c c c c c b b b . 
+        . . . f f f f f f f . . . 
+        . . . f f f . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . 
+        . . . . f f f f . . . . . 
+        . . f f f f f f f f . . . 
+        . f f f c f f f f f f . . 
+        c f f f c c f f f f f f f 
+        c f f f f f f f c f f f f 
+        c c f f d d f f f c c c . 
+        f c c f f d d f f f f f . 
+        f f f b f d d f b f f f . 
+        f f d 1 f d d f 1 d f f . 
+        b f c c d d d d d d f . . 
+        b d d d b 9 9 9 9 f c c . 
+        . b d d b 9 9 9 9 f d d . 
+        . . b b c c c c c f . . . 
+        . . . f f f f f f f . . . 
+        . . . . . . . f f f . . . 
         `],
     500,
     false
@@ -118,13 +290,12 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(30, 5), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(11, 24), assets.tile`myTile`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
     tiles.setTileAt(tiles.getTileLocation(3, 24), assets.tile`myTile`)
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(33, 23))
 })
 info.onScore(3, function () {
     addEnemies(list)
@@ -141,74 +312,38 @@ let list: Image[] = []
 let diamondsCollected = 0
 let mySprite: Sprite = null
 tiles.setCurrentTilemap(tilemap`level`)
-game.showLongText("Your goal is to collect all the color diamonds, but their might be some diamonds that can cause you a life. ", DialogLayout.Center)
+game.showLongText("Your goal is to collect all the color diamonds, but some stripped diamonds can cause you to lose all your hearts.  ", DialogLayout.Center)
 info.setLife(3)
 info.setScore(0)
 mySprite = sprites.create(img`
-    . . . . . . f f f f . . . . . . 
-    . . . . f f f 2 2 f f f . . . . 
-    . . . f f f 2 2 2 2 f f f . . . 
-    . . f f f e e e e e e f f f . . 
-    . . f f e 2 2 2 2 2 2 e e f . . 
-    . . f e 2 f f f f f f 2 e f . . 
-    . . f f f f e e e e f f f f . . 
-    . f f e f b f 4 4 f b f e f f . 
-    . f e e 4 1 f d d f 1 4 e e f . 
-    . . f e e d d d d d d e e f . . 
-    . . . f e e 4 4 4 4 e e f . . . 
-    . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-    . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-    . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-    . . . . . f f f f f f . . . . . 
-    . . . . . f f . . f f . . . . . 
+    . . . . f f f f . . . . . 
+    . . f f f f f f f f . . . 
+    . f f f f f f a f f f . . 
+    f f f f f f a a f f f a . 
+    f f f a f f f f f f f a . 
+    a a a f f f f f f f a a . 
+    f f f f f d f f f a a f . 
+    f f f b f d d f b f f f . 
+    . f d 1 f d d f 1 d f . . 
+    . f 3 d d d d d d 3 f . . 
+    . f f d d d d d d f f . . 
+    . c c c 9 c c 9 c c c . . 
+    . d d 9 9 9 9 9 9 d d . . 
+    . d d c c c c c c d d . . 
+    . . . f f f f f f . . . . 
+    . . . f f . . f f . . . . 
     `, SpriteKind.Player)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(3, 2))
 controller.moveSprite(mySprite, 100, 70)
 diamondsCollected = 0
-tiles.setTileAt(tiles.getTileLocation(23, 5), assets.tile`myTile1`)
-tiles.setTileAt(tiles.getTileLocation(30, 2), assets.tile`myTile2`)
-tiles.setTileAt(tiles.getTileLocation(8, 14), assets.tile`myTile3`)
-tiles.setTileAt(tiles.getTileLocation(20, 15), assets.tile`myTile4`)
+tiles.setTileAt(tiles.getTileLocation(26, 2), assets.tile`myTile1`)
+tiles.setTileAt(tiles.getTileLocation(11, 24), assets.tile`myTile2`)
+tiles.setTileAt(tiles.getTileLocation(28, 30), assets.tile`myTile3`)
+tiles.setTileAt(tiles.getTileLocation(29, 10), assets.tile`myTile4`)
 tiles.setTileAt(tiles.getTileLocation(3, 24), assets.tile`myTile5`)
 tiles.setTileAt(tiles.getTileLocation(17, 27), assets.tile`myTile9`)
 scene.cameraFollowSprite(mySprite)
 list = [
-img`
-    . . . . . . . . . . b 5 b . . . 
-    . . . . . . . . . b 5 b . . . . 
-    . . . . . . b b b b b b . . . . 
-    . . . . . b b 5 5 5 5 5 b . . . 
-    . . . . b b 5 d 1 f 5 5 d f . . 
-    . . . . b 5 5 1 f f 5 d 4 c . . 
-    . . . . b 5 5 d f b d d 4 4 . . 
-    . b b b d 5 5 5 5 5 4 4 4 4 4 b 
-    b d d d b b d 5 5 4 4 4 4 4 b . 
-    b b d 5 5 5 b 5 5 5 5 5 5 b . . 
-    c d c 5 5 5 5 d 5 5 5 5 5 5 b . 
-    c b d c d 5 5 b 5 5 5 5 5 5 b . 
-    . c d d c c b d 5 5 5 5 5 d b . 
-    . . c b d d d d d 5 5 5 b b . . 
-    . . . c c c c c c c c b b . . . 
-    . . . . . . . . . . . . . . . . 
-    `,
-img`
-    . . . . f f f f f . . . . . . . 
-    . . . f e e e e e f . . . . . . 
-    . . f d d d d e e e f . . . . . 
-    . c d f d d f d e e f f . . . . 
-    . c d f d d f d e e d d f . . . 
-    c d e e d d d d e e b d c . . . 
-    c d d d d c d d e e b d c . f f 
-    c c c c c d d d e e f c . f e f 
-    . f d d d d d e e f f . . f e f 
-    . . f f f f f e e e e f . f e f 
-    . . . . f e e e e e e e f f e f 
-    . . . f e f f e f e e e e f f . 
-    . . . f e f f e f e e e e f . . 
-    . . . f d b f d b f f e f . . . 
-    . . . f d d c d d b b d f . . . 
-    . . . . f f f f f f f f f . . . 
-    `,
 img`
     . . f f f . . . . . . . . f f f 
     . f f c c . . . . . . f c b b c 
@@ -217,15 +352,51 @@ img`
     f f f c c . c c . f c b b c c . 
     f f c 3 c c 3 c c f b c b b c . 
     f f b 3 b c 3 b c f b c c b c . 
-    . c b b b b b b c b b c c c . . 
+    . c 1 b b b 1 b c b b c c c . . 
     . c 1 b b b 1 b b c c c c . . . 
     c b b b b b b b b b c c . . . . 
-    c b c b b b c b b b b f . . . . 
-    f b 1 f f f 1 b b b b f c . . . 
-    f b b b b b b b b b b f c c . . 
-    . f b b b b b b b b c f . . . . 
+    c b 1 f f 1 c b b b b f . . . . 
+    f f 1 f f 1 f b b b b f c . . . 
+    f f 2 2 2 2 f b b b b f c c . . 
+    . f 2 2 2 2 b b b b c f . . . . 
     . . f b b b b b b c f . . . . . 
     . . . f f f f f f f . . . . . . 
+    `,
+img`
+    ...................cc...
+    ...............cccc86c..
+    ..............c866668c..
+    ..........cc.c8cc66668c.
+    .........cbbc8cbbc66666c
+    .........1fbc8cb1f66666c
+    .........ffbc8cbff8666cc
+    .........cbb6c6bbc8888cc
+    ..........cbb6bbc666666c
+    .........ccbbbbbccc6666c
+    ........cbb8bbb8cbbc66c.
+    ........cb8c8888ccbccc..
+    ........c8bbc8cbbb8c8bc.
+    ........cbbbc8cbbbc8cbc.
+    ........cbbbbcbbbbc8cbc.
+    .........ccccccccc..ccc.
+    `,
+img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . f f f f f f . . . . . . . . . 
+    f f 5 5 5 5 f f . . . . . . . . 
+    f 5 5 5 5 5 5 f . . . . . . . . 
+    f 5 f 1 5 f 1 f f f . . . . . . 
+    f 5 5 5 5 5 5 2 4 f f f . . . . 
+    f f f 5 5 5 2 4 2 5 5 f . . . . 
+    . f 5 5 5 2 4 2 5 5 5 f f . . . 
+    . f 5 2 2 4 2 5 5 5 5 2 f f f . 
+    . f f f 4 2 5 5 5 5 2 4 4 2 f f 
+    . f f f f f f f 2 2 4 4 2 5 5 f 
+    . . . . . . f f f 4 4 2 5 5 5 f 
+    . . . . . . . . f f f f f f f f 
+    . . . . . . . . . . . . . . . . 
     `,
 img`
     . . . . . . . . . . . c c c c c 
