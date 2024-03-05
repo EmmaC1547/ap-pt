@@ -1,15 +1,20 @@
 namespace SpriteKind {
     export const diamond = SpriteKind.create()
 }
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
+    // Used tile provided by MakeCode Arcade.
     tiles.setTileAt(tiles.getTileLocation(30, 2), assets.tile`myTile`)
 })
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile19`, function (sprite, location) {
     tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 31))
+    // Used tile provided by MakeCode Arcame.
     tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`myTile16`)
 })
+// Used sprite provided by MakeCode Arcade, but edited the sprite.
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -69,19 +74,26 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     false
     )
 })
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
     info.changeLifeBy(-1)
+    // Used tile provided by MakeCode Arcade. 
     tiles.setTileAt(tiles.getTileLocation(30, 18), assets.tile`myTile`)
 })
+// Used tile provided by MakeCode Arcade, but added a drawing in tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
     info.setLife(-1)
+    // Used tile provided by MakeCode Arcade. 
     tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile16`)
 })
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
+    // Used tile provided by MakeCode Arcade. 
     tiles.setTileAt(tiles.getTileLocation(3, 22), assets.tile`myTile`)
 })
+// Used sprite provided by MakeCode Arcade, but edited the sprite.
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -141,20 +153,27 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     false
     )
 })
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(23, 17), assets.tile`myTile`)
+    // Used tile provided by MakeCode Arcade. 
+    tiles.setTileAt(tiles.getTileLocation(1, 28), assets.tile`myTile`)
 })
+// Used tile provided by MakeCode Arcade, but added a drawing  to the tile..
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
+    // Used tile provided by MakeCode Arcade. 
     tiles.setTileAt(tiles.getTileLocation(29, 16), assets.tile`myTile`)
 })
+// Used tile provided by MakeCode Arcade, but added a drawing on the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile18`, function (sprite, location) {
     tiles.placeOnTile(mySprite, tiles.getTileLocation(23, 29))
+    // Used tile provided by MakeCode Arcade.
     tiles.setTileAt(tiles.getTileLocation(26, 26), assets.tile`myTile16`)
 })
+// Used sprite provided by MakeCode, but edited the sprite.
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -215,6 +234,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 function addEnemies (enemyList: Image[]) {
+    // Used the tile provided by MakeCode arcade, but edited the tile. 
     for (let value of tiles.getTilesByType(assets.tile`myTile12`)) {
         enemySprite = sprites.create(enemyList._pickRandom(), SpriteKind.Enemy)
         tiles.placeOnTile(enemySprite, value)
@@ -222,12 +242,17 @@ function addEnemies (enemyList: Image[]) {
         enemySprite.setBounceOnWall(true)
     }
     if (diamondsCollected == 3) {
+        // Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
         tiles.setTileAt(tiles.getTileLocation(30, 18), assets.tile`myTile15`)
+        // Used tile provided by MakeCode Arcade, but added a drawing to the tile.
         tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile13`)
+        // Used tile provided by MakeCode Arcade, but added a drawing  to the tile. 
         tiles.setTileAt(tiles.getTileLocation(26, 26), assets.tile`myTile18`)
+        // Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
         tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`myTile19`)
     }
 }
+// Used sprite provided by MakeCode Arcade, but edited the sprite.
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -287,14 +312,18 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     false
     )
 })
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
-    tiles.setTileAt(tiles.getTileLocation(17, 13), assets.tile`myTile`)
+    // Used tile provided by MakeCode Arcade. 
+    tiles.setTileAt(tiles.getTileLocation(7, 14), assets.tile`myTile`)
 })
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
+    // Used tile provided by MakeCode Arcade. 
     tiles.setTileAt(tiles.getTileLocation(24, 30), assets.tile`myTile`)
 })
 info.onScore(3, function () {
@@ -311,12 +340,12 @@ let enemySprite: Sprite = null
 let list: Image[] = []
 let diamondsCollected = 0
 let mySprite: Sprite = null
-// Used tiles provided by Makecode Arcade
+// Used tiles provided by MakeCode Arcade.
 tiles.setCurrentTilemap(tilemap`level`)
 game.showLongText("Collect all the colored diamonds, watch out for teleporters, and some striped diamonds can cause you to lose.  ", DialogLayout.Center)
 info.setLife(3)
 info.setScore(0)
-// Used sprite provided by Makecode Arcade, but edited the sprite.
+// Used sprite provided by MakeCode, Arcade, but edited the sprite.
 mySprite = sprites.create(img`
     . . . . f f f f . . . . . 
     . . f f f f f f f f . . . 
@@ -338,13 +367,20 @@ mySprite = sprites.create(img`
 tiles.placeOnTile(mySprite, tiles.getTileLocation(3, 2))
 controller.moveSprite(mySprite, 100, 70)
 diamondsCollected = 0
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile.
 tiles.setTileAt(tiles.getTileLocation(30, 2), assets.tile`myTile1`)
-tiles.setTileAt(tiles.getTileLocation(17, 13), assets.tile`myTile2`)
+// Used tile by MakeCode Arcade, but added a drawing to the tile. 
+tiles.setTileAt(tiles.getTileLocation(7, 14), assets.tile`myTile2`)
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 tiles.setTileAt(tiles.getTileLocation(29, 16), assets.tile`myTile3`)
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 tiles.setTileAt(tiles.getTileLocation(3, 22), assets.tile`myTile4`)
+// Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 tiles.setTileAt(tiles.getTileLocation(24, 30), assets.tile`myTile5`)
-tiles.setTileAt(tiles.getTileLocation(23, 17), assets.tile`myTile9`)
+// Used tile provided by Makecode Arcade, but added a drawing to the tile.
+tiles.setTileAt(tiles.getTileLocation(1, 28), assets.tile`myTile9`)
 scene.cameraFollowSprite(mySprite)
+// Used the first two sprites provided by MakeCode arcade, and edited the colors of  the fourth sprite  that was provided by MakeCode Arcade. 
 list = [
 img`
     . . f f f . . . . . . . . f f f 
@@ -365,22 +401,22 @@ img`
     . . . f f f f f f f . . . . . . 
     `,
 img`
-    ...................cc...
-    ...............cccc86c..
-    ..............c866668c..
-    ..........cc.c8cc66668c.
-    .........cbbc8cbbc66666c
-    .........1fbc8cb1f66666c
-    .........ffbc8cbff8666cc
-    .........cbb6c6bbc8888cc
-    ..........cbb6bbc666666c
-    .........ccbbbbbccc6666c
-    ........cbb8bbb8cbbc66c.
-    ........cb8c8888ccbccc..
-    ........c8bbc8cbbb8c8bc.
-    ........cbbbc8cbbbc8cbc.
-    ........cbbbbcbbbbc8cbc.
-    .........ccccccccc..ccc.
+    . . . . . . . . . . . c c c c c 
+    . . . . . . . . . c c 7 7 7 6 c 
+    . . . . . . . . c c 7 7 7 c c . 
+    . . . . . . . . c 6 7 7 c . . . 
+    . . . . . . . . c 6 6 6 c . . . 
+    . . . . . . . . c 6 6 6 c c . . 
+    . . . c c c c c c c 6 6 6 c c . 
+    . . c 6 7 7 7 7 6 c c 6 6 6 c . 
+    . c 7 7 7 7 7 7 7 7 c 6 6 6 c c 
+    c 6 7 7 7 7 7 7 7 7 6 c 6 6 6 c 
+    c 7 c 6 6 6 6 c 7 7 7 c 6 6 6 c 
+    f 7 c c 6 6 c c 7 7 7 f 6 6 6 c 
+    f 7 6 f 6 6 f 6 7 7 7 f 6 6 6 c 
+    . f 7 7 7 7 7 7 7 7 6 f 6 6 c . 
+    . c 1 c f f 1 c 7 6 f 6 6 c c . 
+    . c c c c c c c c c c c c . . . 
     `,
 img`
     . . . . . . . . . . . . . . . . 
@@ -401,22 +437,22 @@ img`
     . . . . . . . . . . . . . . . . 
     `,
 img`
-    . . . . . . . . . . . c c c c c 
-    . . . . . . . . . c c 7 7 7 6 c 
-    . . . . . . . . c c 7 7 7 c c . 
-    . . . . . . . . c 6 7 7 c . . . 
-    . . . . . . . . c 6 6 6 c . . . 
-    . . . . . . . . c 6 6 6 c c . . 
-    . . . c c c c c c c 6 6 6 c c . 
-    . . c 6 7 7 7 7 6 c c 6 6 6 c . 
-    . c 7 7 7 7 7 7 7 7 c 6 6 6 c c 
-    c 6 7 7 7 7 7 7 7 7 6 c 6 6 6 c 
-    c 7 c 6 6 6 6 c 7 7 7 c 6 6 6 c 
-    f 7 c c 6 6 c c 7 7 7 f 6 6 6 c 
-    f 7 6 f 6 6 f 6 7 7 7 f 6 6 6 c 
-    . f 7 7 7 7 7 7 7 7 6 f 6 6 c . 
-    . c 1 c f f 1 c 7 6 f 6 6 c c . 
-    . c c c c c c c c c c c c . . . 
+    ...................cc...
+    ...............cccc86c..
+    ..............c866668c..
+    ..........cc.c8cc66668c.
+    .........cbbc8cbbc66666c
+    .........1fbc8cb1f66666c
+    .........ffbc8cbff8666cc
+    .........cbb6c6bbc8888cc
+    ..........cbb6bbc666666c
+    .........ccbbbbbccc6666c
+    ........cbb8bbb8cbbc66c.
+    ........cb8c8888ccbccc..
+    ........c8bbc8cbbb8c8bc.
+    ........cbbbc8cbbbc8cbc.
+    ........cbbbbcbbbbc8cbc.
+    .........ccccccccc..ccc.
     `
 ]
 if (info.life() == 0) {
