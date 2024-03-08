@@ -10,9 +10,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile1`, function (sprite, l
 })
 // Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile19`, function (sprite, location) {
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(1, 31))
-    // Used tile provided by MakeCode Arcame.
-    tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`myTile16`)
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(27, 11))
+    // Used tile provided by MakeCode Arcade.
+    tiles.setTileAt(tiles.getTileLocation(15, 20), assets.tile`myTile16`)
 })
 // Used sprite provided by MakeCode Arcade, but edited the sprite.
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -78,13 +78,13 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile15`, function (sprite, location) {
     info.changeLifeBy(-1)
     // Used tile provided by MakeCode Arcade. 
-    tiles.setTileAt(tiles.getTileLocation(30, 18), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(17, 27), assets.tile`myTile`)
 })
 // Used tile provided by MakeCode Arcade, but added a drawing in tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile13`, function (sprite, location) {
     info.setLife(-1)
     // Used tile provided by MakeCode Arcade. 
-    tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile16`)
+    tiles.setTileAt(tiles.getTileLocation(19, 23), assets.tile`myTile16`)
 })
 // Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile4`, function (sprite, location) {
@@ -160,7 +160,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile9`, function (sprite, l
     // Used tile provided by MakeCode Arcade. 
     tiles.setTileAt(tiles.getTileLocation(1, 28), assets.tile`myTile`)
 })
-// Used tile provided by MakeCode Arcade, but added a drawing  to the tile..
+// Used tile provided by MakeCode Arcade, but added a drawing  to the tile.
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, location) {
     diamondsCollected += 1
     info.changeScoreBy(1)
@@ -169,11 +169,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile3`, function (sprite, l
 })
 // Used tile provided by MakeCode Arcade, but added a drawing on the tile. 
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile18`, function (sprite, location) {
-    tiles.placeOnTile(mySprite, tiles.getTileLocation(23, 29))
+    tiles.placeOnTile(mySprite, tiles.getTileLocation(5, 28))
     // Used tile provided by MakeCode Arcade.
-    tiles.setTileAt(tiles.getTileLocation(26, 26), assets.tile`myTile16`)
+    tiles.setTileAt(tiles.getTileLocation(33, 25), assets.tile`myTile16`)
 })
-// Used sprite provided by MakeCode, but edited the sprite.
+// Used sprite provided by MakeCode Arcade, but edited the sprite.
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -234,7 +234,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 function addEnemies (enemyList: Image[]) {
-    // Used the tile provided by MakeCode arcade, but edited the tile. 
+    // Used the tile provided by MakeCode Arcade, but edited the tile. 
     for (let value of tiles.getTilesByType(assets.tile`myTile12`)) {
         enemySprite = sprites.create(enemyList._pickRandom(), SpriteKind.Enemy)
         tiles.placeOnTile(enemySprite, value)
@@ -243,13 +243,13 @@ function addEnemies (enemyList: Image[]) {
     }
     if (diamondsCollected == 3) {
         // Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
-        tiles.setTileAt(tiles.getTileLocation(30, 18), assets.tile`myTile15`)
+        tiles.setTileAt(tiles.getTileLocation(17, 27), assets.tile`myTile15`)
         // Used tile provided by MakeCode Arcade, but added a drawing to the tile.
-        tiles.setTileAt(tiles.getTileLocation(4, 30), assets.tile`myTile13`)
+        tiles.setTileAt(tiles.getTileLocation(19, 23), assets.tile`myTile13`)
         // Used tile provided by MakeCode Arcade, but added a drawing  to the tile. 
-        tiles.setTileAt(tiles.getTileLocation(26, 26), assets.tile`myTile18`)
+        tiles.setTileAt(tiles.getTileLocation(33, 25), assets.tile`myTile18`)
         // Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
-        tiles.setTileAt(tiles.getTileLocation(3, 16), assets.tile`myTile19`)
+        tiles.setTileAt(tiles.getTileLocation(15, 20), assets.tile`myTile19`)
     }
 }
 // Used sprite provided by MakeCode Arcade, but edited the sprite.
@@ -324,13 +324,14 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile5`, function (sprite, l
     diamondsCollected += 1
     info.changeScoreBy(1)
     // Used tile provided by MakeCode Arcade. 
-    tiles.setTileAt(tiles.getTileLocation(24, 30), assets.tile`myTile`)
+    tiles.setTileAt(tiles.getTileLocation(23, 30), assets.tile`myTile`)
 })
 info.onScore(3, function () {
     addEnemies(list)
 })
 info.onScore(6, function () {
-    game.splash("You collected all the diamonds!")
+    game.splash("You win, you collected all the diamonds!")
+    game.reset()
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
@@ -342,10 +343,10 @@ let diamondsCollected = 0
 let mySprite: Sprite = null
 // Used tiles provided by MakeCode Arcade.
 tiles.setCurrentTilemap(tilemap`level`)
-game.showLongText("Collect all the colored diamonds, watch out for teleporters, and some striped diamonds can cause you to lose.  ", DialogLayout.Center)
+game.showLongText("Collect all the colored diamonds, watch out for teleporters, and some diamonds can caused you to lose a life.", DialogLayout.Center)
 info.setLife(3)
 info.setScore(0)
-// Used sprite provided by MakeCode, Arcade, but edited the sprite.
+// Used sprite provided by MakeCode Arcade, but edited the sprite.
 mySprite = sprites.create(img`
     . . . . f f f f . . . . . 
     . . f f f f f f f f . . . 
@@ -365,7 +366,7 @@ mySprite = sprites.create(img`
     . . . f f . . f f . . . . 
     `, SpriteKind.Player)
 tiles.placeOnTile(mySprite, tiles.getTileLocation(3, 2))
-controller.moveSprite(mySprite, 100, 70)
+controller.moveSprite(mySprite, 120, 100)
 diamondsCollected = 0
 // Used tile provided by MakeCode Arcade, but added a drawing to the tile.
 tiles.setTileAt(tiles.getTileLocation(30, 2), assets.tile`myTile1`)
@@ -376,11 +377,11 @@ tiles.setTileAt(tiles.getTileLocation(29, 16), assets.tile`myTile3`)
 // Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
 tiles.setTileAt(tiles.getTileLocation(3, 22), assets.tile`myTile4`)
 // Used tile provided by MakeCode Arcade, but added a drawing to the tile. 
-tiles.setTileAt(tiles.getTileLocation(24, 30), assets.tile`myTile5`)
+tiles.setTileAt(tiles.getTileLocation(23, 30), assets.tile`myTile5`)
 // Used tile provided by Makecode Arcade, but added a drawing to the tile.
 tiles.setTileAt(tiles.getTileLocation(1, 28), assets.tile`myTile9`)
 scene.cameraFollowSprite(mySprite)
-// Used the first two sprites provided by MakeCode arcade, and edited the colors of  the fourth sprite  that was provided by MakeCode Arcade. 
+// Used the first two sprites provided by MakeCode Arcade, and edited the colors of  the fourth sprite  that was provided by MakeCode Arcade. 
 list = [
 img`
     . . f f f . . . . . . . . f f f 
@@ -455,7 +456,7 @@ img`
     .........ccccccccc..ccc.
     `
 ]
+addEnemies(list)
 if (info.life() == 0) {
     game.splash("You lost, try again!")
 }
-addEnemies(list)
